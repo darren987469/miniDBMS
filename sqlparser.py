@@ -75,7 +75,7 @@ class SQLQuery:
 
 if __name__ == '__main__':
     cmd4 = "SELECT tname FROM teacher, department WHERE location = l2 AND teacher.did = department.did"
-    cmd5 = "SELECT * FROM teacher, department"
+    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 OR location = L3"
     query = SQLQuery(cmd5)
     print "cmd: " +cmd4
     print "tables:" + str(query.tables)

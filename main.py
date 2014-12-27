@@ -15,15 +15,7 @@ def join(table1, table2):
     result = []
     for t1 in table1:
         for t2 in table2:
-                result.append(dict(t1.items() + t2.items()))
-    return result
-
-# join two tables
-def equalJoin(table1, table2, cond):
-    result = []
-    for t1 in table1:
-        for t2 in table2:
-                result.append(dict(t1.items() + t2.items()))
+            result.append(dict(t1.items() + t2.items()))
     return result
 
 def printTable(table):
@@ -97,14 +89,38 @@ def tableFilter(table, cond):
         print table
         print cond  
 
+def hasJoinCondition(conds, keys):
+    for cond in conds:
+        if cond["para1"] in keys and cond["para2"] in keys:
+            return True
+    return False
 
+def equalJoin(table1, table2, cond):
+    result = []
+    if cond["para1"] in table1[0].keys():
+        joinTable1 = table1
+        joinTable2 = table2
+    else:
+        joinTable1 = table2
+        joinTable2 = table1
+    for t1 in joinTable1:
+        for t2 in joinTable2:
+            if t1[cond["para1"]] == t2[cond["para2"]]:
+                result.append(dict(t1.items() + t2.items()))
+    return result
+
+# get join condition with specified table keys
+def getJoinCondition(conds, keys):
+    joinConds = filter(lambda cond: cond["para1"] in keys and cond["para2"] in keys, conds)
+    return joinConds[0]
+    
 if __name__ == '__main__':
     cmd1 = "SELECT * FROM teacher"
     cmd2 = "SELECT tid, tname FROM teacher"
     cmd3 = "SELECT tname FROM teacher WHERE tid = 1"
     cmd4 = "SELECT tname FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
-    cmd5 = "SELECT * FROM teacher, department"
-    cmd = cmd1
+    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 OR location = L3"
+    cmd = cmd5
     query = SQLQuery(cmd)
     conds = [cond for cond in query.conds]
     print "cmd: " +cmd
@@ -122,19 +138,20 @@ if __name__ == '__main__':
             result = data.pop(data.keys()[0])
         else:
             # pop another table to join with result table
-            jointable = data.pop(data.keys()[0])
-            result = join(result, jointable)
-            # get executable condition and filter result table
-            keys = result[0].keys()
+            nextTable = data.pop(data.keys()[0])
+            keys = result[0].keys() + nextTable[0].keys()
             
-            conditions = filter(lambda c: condFilter(c, keys), conds)
-            print conditions
-            for cond in conditions:
-                # remove conditions from conds
-                conds.remove(cond)
-                result = tableFilter(result, cond)
+            # get join condition and join two tables
+            print hasJoinCondition(conds, keys)
+            if hasJoinCondition(conds, keys):
+                joinCond = getJoinCondition(conds, keys)
+                # remove join condition from condition list
+                conds.remove(joinCond)
+                result = equalJoin(result, nextTable, joinCond)
+            else:
+                result = join(result, nextTable)
     
-    print "result:" + str(result) 
+    print "result before filter cond:" + str(result) 
     # read all conditions
     if len(conds) != 0:
         for cond in conds:
