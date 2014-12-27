@@ -1,9 +1,11 @@
 import os.path
 import json
+import re
 
 class SQLQuery:
     
     def __init__(self, cmd):
+        print cmd
         self.cmd = " ".join(cmd.split())
         self.tables = self.getTables()
         self.tablekeys = self.getTablekeys()
@@ -13,6 +15,8 @@ class SQLQuery:
     def getAttrs(self):
         # attribute list between SELECT and FROM
         attr_str = self.cmd[(self.cmd.index("SELECT") + 6):self.cmd.index("FROM")].strip()
+        if "*" in attr_str:
+            return ["*"]
         attrs = attr_str.split(",")
         attrs = map(lambda attr: attr.strip(),attrs)
         # rewrite attrs, ex: tname -> teacher.tname
@@ -47,7 +51,8 @@ class SQLQuery:
         if(self.cmd.find("WHERE") == -1):
             return []
         cond_str = self.cmd[self.cmd.index("WHERE")+5:].strip()
-        conds = cond_str.split("AND")
+        #conds = re.split("AND | OR", cond_str)
+        conds = re.split("AND", cond_str)
         return_conds = []
         
         for cond in conds:
@@ -75,9 +80,11 @@ class SQLQuery:
 
 if __name__ == '__main__':
     cmd4 = "SELECT tname FROM teacher, department WHERE location = l2 AND teacher.did = department.did"
-    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 OR location = L3"
-    query = SQLQuery(cmd5)
-    print "cmd: " +cmd4
+    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 AND location = L3"
+    cmd6 = "SELECT * FROM teacher WHERE did IN (SELECT did FROM department WHERE location = L3)"
+    cmd = cmd6
+    query = SQLQuery(cmd)
+    print "cmd: " +cmd
     print "tables:" + str(query.tables)
     print "tablekeys:" + str(query.tablekeys)
     print "attrs:" + str(query.attrs)

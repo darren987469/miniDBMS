@@ -109,6 +109,20 @@ def equalJoin(table1, table2, cond):
                 result.append(dict(t1.items() + t2.items()))
     return result
 
+def attrFilter(table, attrs):
+    
+    if len(attrs) == 1 and "*" in attrs:
+        return table
+    else:
+        result = []
+        for row in table:
+            newRow = {}
+            for rowkey in row.keys():
+                if rowkey in attrs:
+                    newRow[rowkey] = row[rowkey]
+            result.append(newRow)
+        return result
+
 # get join condition with specified table keys
 def getJoinCondition(conds, keys):
     joinConds = filter(lambda cond: cond["para1"] in keys and cond["para2"] in keys, conds)
@@ -117,10 +131,10 @@ def getJoinCondition(conds, keys):
 if __name__ == '__main__':
     cmd1 = "SELECT * FROM teacher"
     cmd2 = "SELECT tid, tname FROM teacher"
-    cmd3 = "SELECT tname FROM teacher WHERE tid = 1"
+    cmd3 = "SELECT tname, tid FROM teacher WHERE tid = 1"
     cmd4 = "SELECT tname FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
-    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 OR location = L3"
-    cmd = cmd5
+    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
+    cmd = cmd3
     query = SQLQuery(cmd)
     conds = [cond for cond in query.conds]
     print "cmd: " +cmd
@@ -142,7 +156,6 @@ if __name__ == '__main__':
             keys = result[0].keys() + nextTable[0].keys()
             
             # get join condition and join two tables
-            print hasJoinCondition(conds, keys)
             if hasJoinCondition(conds, keys):
                 joinCond = getJoinCondition(conds, keys)
                 # remove join condition from condition list
@@ -151,15 +164,17 @@ if __name__ == '__main__':
             else:
                 result = join(result, nextTable)
     
-    print "result before filter cond:" + str(result) 
+    print "Result before cond filter:" + str(result) 
     # read all conditions
     if len(conds) != 0:
         for cond in conds:
             print "cond:" + str(cond)
             result = tableFilter(result, cond)
+    print "Result after cond filter:" + str(result)        
     # TODO
-    # select attrs    
-    
+    # select attrs
+    result = attrFilter(result, query.attrs)    
+    print result
     printTable(result)
     
     pass
