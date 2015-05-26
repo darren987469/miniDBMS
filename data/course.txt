@@ -1,0 +1,82 @@
+[
+    {
+        "cid": 1, 
+        "did": 1, 
+        "cname": "C1", 
+        "tid": 1, 
+        "rid": 1, 
+        "cgrade": 2
+    }, 
+    {
+        "cid": 2, 
+        "did": 2, 
+        "cname": "C2", 
+        "tid": 2, 
+        "rid": 2, 
+        "cgrade": 3
+    }, 
+    {
+        "cid": 3, 
+        "did": 3, 
+        "cname": "C3", 
+        "tid": 3, 
+        "rid": 3, 
+        "cgrade": 4
+    }, 
+    {
+        "cid": 4, 
+        "did": 4, 
+        "cname": "C4", 
+        "tid": 4, 
+        "rid": 4, 
+        "cgrade": 1
+    }, 
+    {
+        "cid": 5, 
+        "did": 5, 
+        "cname": "C5", 
+        "tid": 5, 
+        "rid": 5, 
+        "cgrade": 2
+    }, 
+    {
+        "cid": 6, 
+        "did": 6, 
+        "cname": "C6", 
+        "tid": 6, 
+        "rid": 6, 
+        "cgrade": 3
+    }, 
+    {
+        "cid": 7, 
+        "did": 7, 
+        "cname": "C7", 
+        "tid": 7, 
+        "rid": 7, 
+        "cgrade": 4
+    }, 
+    {
+        "cid": 8, 
+        "did": 8, 
+        "cname": "C8", 
+        "tid": 8, 
+        "rid": 8, 
+        "cgrade": 1
+    }, 
+    {
+        "cid": 9, 
+        "did": 9, 
+        "cname": "C9", 
+        "tid": 9, 
+        "rid": 9, 
+        "cgrade": 2
+    }, 
+    {
+        "cid": 10, 
+        "did": 10, 
+        "cname": "C10", 
+        "tid": 10, 
+        "rid": 10, 
+        "cgrade": 3
+    }
+]

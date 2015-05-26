@@ -1,1 +1,0 @@
-[{"tid": 1, "tname": "T1", "tsex": "female", "did": 1}, {"tid": 2, "tname": "T2", "tsex": "male", "did": 2}, {"tid": 3, "tname": "T3", "tsex": "female", "did": 3}]

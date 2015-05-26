@@ -1,0 +1,72 @@
+[
+    {
+        "did": 1, 
+        "ownerid": 1, 
+        "rid": 1, 
+        "type": "office", 
+        "rname": "Room1"
+    }, 
+    {
+        "did": 2, 
+        "ownerid": 2, 
+        "rid": 2, 
+        "type": "lab", 
+        "rname": "Room2"
+    }, 
+    {
+        "did": 3, 
+        "ownerid": 3, 
+        "rid": 3, 
+        "type": "classroom", 
+        "rname": "Room3"
+    }, 
+    {
+        "did": 4, 
+        "ownerid": 4, 
+        "rid": 4, 
+        "type": "office", 
+        "rname": "Room4"
+    }, 
+    {
+        "did": 5, 
+        "ownerid": 5, 
+        "rid": 5, 
+        "type": "lab", 
+        "rname": "Room5"
+    }, 
+    {
+        "did": 6, 
+        "ownerid": 6, 
+        "rid": 6, 
+        "type": "classroom", 
+        "rname": "Room6"
+    }, 
+    {
+        "did": 7, 
+        "ownerid": 7, 
+        "rid": 7, 
+        "type": "office", 
+        "rname": "Room7"
+    }, 
+    {
+        "did": 8, 
+        "ownerid": 8, 
+        "rid": 8, 
+        "type": "lab", 
+        "rname": "Room8"
+    }, 
+    {
+        "did": 9, 
+        "ownerid": 9, 
+        "rid": 9, 
+        "type": "classroom", 
+        "rname": "Room9"
+    }, 
+    {
+        "did": 10, 
+        "ownerid": 10, 
+        "rid": 10, 
+        "type": "office", 
+        "rname": "Room10"
+    }
+]

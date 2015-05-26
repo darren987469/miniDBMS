@@ -1,0 +1,502 @@
+[
+    {
+        "grade": 24, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 58, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 91, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 8, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 64, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 35, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 91, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 56, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 40, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 54, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 63, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 22, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 12, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 35, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 97, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 93, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 83, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 84, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 23, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 31, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 64, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 39, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 1, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 91, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 92, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 70, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 70, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 79, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 38, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 40, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 29, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 49, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 44, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 79, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 38, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 71, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 52, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 47, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 92, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 12, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 2, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 5, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 6, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 38, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 49, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 78, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 30, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 82, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 64, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 79, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 12, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 73, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 5, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 56, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 89, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 81, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 38, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 48, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 7, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 16, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 43, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 86, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 60, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 17, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 50, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 98, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 35, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 71, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 87, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 46, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 1, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 84, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 93, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 13, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 21, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 31, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 13, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 98, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 20, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 59, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 37, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 43, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 81, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 29, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 76, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 84, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 37, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 78, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 86, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 26, 
+        "cid": 1, 
+        "sid": 1
+    }, 
+    {
+        "grade": 9, 
+        "cid": 2, 
+        "sid": 2
+    }, 
+    {
+        "grade": 20, 
+        "cid": 3, 
+        "sid": 3
+    }, 
+    {
+        "grade": 91, 
+        "cid": 4, 
+        "sid": 4
+    }, 
+    {
+        "grade": 10, 
+        "cid": 5, 
+        "sid": 5
+    }, 
+    {
+        "grade": 42, 
+        "cid": 6, 
+        "sid": 6
+    }, 
+    {
+        "grade": 40, 
+        "cid": 7, 
+        "sid": 7
+    }, 
+    {
+        "grade": 83, 
+        "cid": 8, 
+        "sid": 8
+    }, 
+    {
+        "grade": 76, 
+        "cid": 9, 
+        "sid": 9
+    }, 
+    {
+        "grade": 84, 
+        "cid": 10, 
+        "sid": 10
+    }, 
+    {
+        "grade": 24, 
+        "cid": 1, 
+        "sid": 1
+    }
+]

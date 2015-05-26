@@ -1,0 +1,52 @@
+[
+    {
+        "did": 1, 
+        "dname": "D1", 
+        "location": "L1"
+    }, 
+    {
+        "did": 2, 
+        "dname": "D2", 
+        "location": "L2"
+    }, 
+    {
+        "did": 3, 
+        "dname": "D3", 
+        "location": "L3"
+    }, 
+    {
+        "did": 4, 
+        "dname": "D4", 
+        "location": "L4"
+    }, 
+    {
+        "did": 5, 
+        "dname": "D5", 
+        "location": "L5"
+    }, 
+    {
+        "did": 6, 
+        "dname": "D6", 
+        "location": "L6"
+    }, 
+    {
+        "did": 7, 
+        "dname": "D7", 
+        "location": "L7"
+    }, 
+    {
+        "did": 8, 
+        "dname": "D8", 
+        "location": "L8"
+    }, 
+    {
+        "did": 9, 
+        "dname": "D9", 
+        "location": "L9"
+    }, 
+    {
+        "did": 10, 
+        "dname": "D10", 
+        "location": "L10"
+    }
+]

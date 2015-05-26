@@ -1,5 +1,7 @@
-import json
 from sqlparser import SQLQuery 
+from db import AVG, COUNT, MAX, MIN, SUM
+from db import join, hasJoinCondition, getJoinCondition, equalJoin
+from db import loadTables
 
 def readCommand():
     while True:
@@ -7,16 +9,6 @@ def readCommand():
         if(cmd == 'q' or cmd =='quit'):
             break
         print cmd
-        
-
-
-# join two tables
-def join(table1, table2):
-    result = []
-    for t1 in table1:
-        for t2 in table2:
-            result.append(dict(t1.items() + t2.items()))
-    return result
 
 def printTable(table):
     print "****************************"
@@ -32,34 +24,6 @@ def printTable(table):
         for key in row.keys():
             row_str += str(row[key]) + "  |  "
         print row_str
-
-# get first matched condition
-def condFilter(cond,keys):
-    # case: department.did = teacher.did
-    if cond['para1'] in keys and cond['para2'] in keys:
-        return True
-    # case: location = 1
-    elif cond['para1'] in keys:
-        return True
-    else:
-        return False    
-
-# tables: a list of table name, ex: teacher
-# return: a dict of table data
-def loadTables(tables):
-    data = {}
-    for t in tables:
-        fname = t + ".txt"
-        table = json.load(open(fname))
-        newTable = []
-        for row in table:
-            newRow = {}
-            for key in row:
-                newRow[t+"."+key] = row[key]
-            newTable.append(newRow)
-        data[t] = newTable
-        #data[t] = json.load(open(fname))
-    return data
 
 def tableFilter(table, cond):
     print "tableFilter(), table:" + str(table)
@@ -78,9 +42,17 @@ def tableFilter(table, cond):
         elif cond['logic'] == ">=":
             return filter(lambda row: str(row[cond['para1']]) >= cond['para2'], table)
         elif cond['logic'] == "<=":
-            return filter(lambda row: str(row[cond['para1']]) >= cond['para2'], table)
+            return filter(lambda row: str(row[cond['para1']]) <= cond['para2'], table)
         elif cond['logic'] == "!=":
             return filter(lambda row: str(row[cond['para1']]) != cond['para2'], table)
+        elif cond['logic'] == "IN":
+            result = executeCmd(cond["para2"])
+            para2list = map(lambda row: row[row.keys()[0]], result)
+            return filter(lambda row: row[cond['para1']] in para2list, table)
+        elif cond['logic'] == "NOT IN":
+            result = executeCmd(cond["para2"])
+            para2list = map(lambda row: row[row.keys()[0]], result)
+            return filter(lambda row: row[cond['para1']] not in para2list, table)
         else: 
             print "tableFilter() else"
             return []
@@ -89,30 +61,26 @@ def tableFilter(table, cond):
         print table
         print cond  
 
-def hasJoinCondition(conds, keys):
-    for cond in conds:
-        if cond["para1"] in keys and cond["para2"] in keys:
-            return True
-    return False
-
-def equalJoin(table1, table2, cond):
-    result = []
-    if cond["para1"] in table1[0].keys():
-        joinTable1 = table1
-        joinTable2 = table2
-    else:
-        joinTable1 = table2
-        joinTable2 = table1
-    for t1 in joinTable1:
-        for t2 in joinTable2:
-            if t1[cond["para1"]] == t2[cond["para2"]]:
-                result.append(dict(t1.items() + t2.items()))
-    return result
-
 def attrFilter(table, attrs):
-    
+    # SELECT *
     if len(attrs) == 1 and "*" in attrs:
         return table
+    # aggregate function, ex: MAX(enroll_in.grade)
+    elif "(" in attrs[0]:
+        result = {}
+        for attr in attrs:
+            if "COUNT" in attr:
+                result.update(COUNT(table,attr))
+            elif "MAX" in attr:
+                result.update(MAX(table,attr))
+            elif "MIN" in attr:
+                result.update(MIN(table,attr))
+            elif "SUM" in attr:
+                result.update(SUM(table,attr))
+            elif "AVG" in attr:
+                result.update(AVG(table,attr))
+        return [result]
+    # SELECT tid, tname FROM teacher
     else:
         result = []
         for row in table:
@@ -123,25 +91,16 @@ def attrFilter(table, attrs):
             result.append(newRow)
         return result
 
-# get join condition with specified table keys
-def getJoinCondition(conds, keys):
-    joinConds = filter(lambda cond: cond["para1"] in keys and cond["para2"] in keys, conds)
-    return joinConds[0]
-    
-if __name__ == '__main__':
-    cmd1 = "SELECT * FROM teacher"
-    cmd2 = "SELECT tid, tname FROM teacher"
-    cmd3 = "SELECT tname, tid FROM teacher WHERE tid = 1"
-    cmd4 = "SELECT tname FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
-    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
-    cmd = cmd3
+
+
+def executeCmd(cmd):
     query = SQLQuery(cmd)
     conds = [cond for cond in query.conds]
-    print "cmd: " +cmd
-    print "tables:" + str(query.tables)
-    print "tablekeys:" + str(query.tablekeys)
-    print "attrs:" + str(query.attrs)
-    print "conditions:" + str(conds) + "\n"
+    #print "cmd: " +cmd
+    #print "tables:" + str(query.tables)
+    #print "tablekeys:" + str(query.tablekeys)
+    #print "attrs:" + str(query.attrs)
+    #print "conditions:" + str(conds) + "\n"
 
     data = loadTables(query.tables)
     
@@ -163,18 +122,27 @@ if __name__ == '__main__':
                 result = equalJoin(result, nextTable, joinCond)
             else:
                 result = join(result, nextTable)
-    
-    print "Result before cond filter:" + str(result) 
-    # read all conditions
+     
+    # read all conditions to filter result table
     if len(conds) != 0:
         for cond in conds:
-            print "cond:" + str(cond)
-            result = tableFilter(result, cond)
-    print "Result after cond filter:" + str(result)        
-    # TODO
+            result = tableFilter(result, cond)       
     # select attrs
     result = attrFilter(result, query.attrs)    
-    print result
-    printTable(result)
+    return result
     
+
+    
+if __name__ == '__main__':
+    cmd1 = "SELECT * FROM department"
+    cmd2 = "SELECT tid, tname FROM teacher"
+    cmd3 = "SELECT tname, tid FROM teacher WHERE tid = 1"
+    cmd4 = "SELECT tname FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
+    cmd5 = "SELECT * FROM teacher, department WHERE location = L2 AND teacher.did = department.did"
+    cmd6 = "SELECT * FROM teacher WHERE did IN (SELECT did FROM department WHERE location = L3)"
+    cmd7 = "SELECT * FROM teacher WHERE did NOT IN (SELECT did FROM department WHERE location = L3)"
+    cmd8 = "SELECT MAX(grade), MIN(grade), SUM(grade), COUNT(*), AVG(grade) FROM enroll_in"
+    
+    result = executeCmd(cmd5)
+    printTable(result)
     pass
