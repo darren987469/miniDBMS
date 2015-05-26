@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="webapp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Database management system</title>
+
+<!-- Bootstrap core CSS -->
+<link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="./dist/css/web.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar" ng-controller="TableCtrl">
+				
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">Tables <span class="sr-only">(current)</span></a></li>
+					<li ng-repeat="table in tables">
+						<a ng-src={{table}} ng-click="showTable(table)" href="#" data-toggle="pill">{{table }}
+					</li>
+					<!--  
+					<li><a href="#">Reports</a></li>
+					<li><a href="#">Analytics</a></li>
+					<li><a href="#">Export</a></li>
+					-->
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h1 class="page-header">SQL statement:</h1>
+
+				<textarea class="form-control" rows="3" ng-model="query" placeholder="Input query statement"></textarea>
+				<br /> <input class="btn btn-default" type="submit" value="Submit" ng-controller="QueryCtrl" ng-click="submitQuery(query)">
+
+				<h2 class="sub-header">Result</h2>
+				<div class="table-responsive" id="result">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+                  				<th>#</th>
+                  				<th>Header</th>
+                  				<th>Header</th>
+                  				<th>Header</th>
+                  				<th>Header</th>
+                			</tr>
+						</thead>
+						<tbody>							
+							<tr>
+								<td>1,001</td>
+								<td>Lorem</td>
+								<td>ipsum</td>
+								<td>dolor</td>
+								<td>sit</td>
+							</tr>
+							<tr>
+								<td>1,002</td>
+								<td>amet</td>
+								<td>consectetur</td>
+								<td>adipiscing</td>
+								<td>elit</td>
+							</tr>						
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./dist/js/jquery-2.1.1.min.js"></script>
+	<script src="./dist/js/bootstrap.min.js"></script>
+	<script src="./dist/js/angular.js"></script>
+	<script src="./dist/js/webapp.js"></script>
+</body>
+</html>
